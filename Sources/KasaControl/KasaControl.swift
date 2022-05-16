@@ -263,15 +263,14 @@ public class KasaControl {
             let hwVer = jsonDevice["deviceHwVer"].stringValue
             switch deviceType {
                 case DeviceTypes.bulb.rawValue:
-                    NSLog("Found a bulb!")
                     let bulb = Bulb(id: id, status: status, name: name, model: model, role: role, hwVer: hwVer)
                     await bulb.getState()
-                    bulb.printState()
                     deviceArray.append(bulb)
                     break
                 case DeviceTypes.plugswitch.rawValue:
                     NSLog("Found a plugswitch")
                     let plugSwitch = PlugSwitch(id: id, status: status, name: name, model: model, role: role, hwVer: hwVer)
+                    await plugSwitch.getState()
                     deviceArray.append(plugSwitch)
                     break
                 default:
