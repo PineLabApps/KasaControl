@@ -1,3 +1,3 @@
 # KasaControl
 
-A description of this package.
+Allows for control of Kasa smart devices 
